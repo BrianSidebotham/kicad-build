@@ -5,6 +5,9 @@
 scriptdir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 builddir="${scriptdir}/build"
 
+echo "SCRIPTDIR: ${scriptdir}"
+ls -l
+
 cd "${scriptdir}" && git clone https://gitlab.com/kicad/code/kicad.git
 
 if [ $? -ne 0 ]; then
