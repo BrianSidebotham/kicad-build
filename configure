@@ -36,6 +36,7 @@ if [ $? -ne 0 ]; then
     echo "${PATH}"
     echo "CMAKE $(which cmake)"
     cmake --version
+    cmake --help
     cat "${builddir}/CMakeFiles/CMakeOutput.log"
     exit 1
 fi
