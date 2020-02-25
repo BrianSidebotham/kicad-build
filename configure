@@ -9,11 +9,8 @@ if [ -d "${scriptdir}/kicad" ]; then
     rm -rf "${scriptdir}/kicad"
 fi
 
-# CircleCI leaves the kicad directory around on a new build
-if [ -d "${scriptdir}/kicad"]; then
-    cd "${scriptdir}/kicad"
-    git pull --rebase
-else
+# Make sure we have the KiCad source code
+if [ ! -d "${scriptdir}/kicad" ]; then
     cd "${scriptdir}"
     git clone https://gitlab.com/kicad/code/kicad.git
 fi

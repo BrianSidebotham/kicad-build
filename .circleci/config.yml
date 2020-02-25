@@ -12,7 +12,7 @@ jobs:
           command: "sudo dnf -y install git wxGTK3-devel python3-wxpython4 OCE-devel cmake glew-devel glm-devel libcurl-devel boost-devel swig python3-devel openssl-devel"
       - run:
           name: "Clone KiCad Source Code"
-          command: "git clone https://gitlab.com/kicad/code/kicad.git"
+          command: "git clone --depth 1 https://gitlab.com/kicad/code/kicad.git"
       - run:
           name: "Configure KiCad"
           command: "./configure"
