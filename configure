@@ -5,13 +5,25 @@
 scriptdir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 builddir="${scriptdir}/build"
 
-echo "SCRIPTDIR: ${scriptdir}"
-ls -l
+if [ -d "${scriptdir}/kicad" ]; then
+    rm -rf "${scriptdir}/kicad"
+fi
 
-cd "${scriptdir}" && git clone https://gitlab.com/kicad/code/kicad.git
+# CircleCI leaves the kicad directory around on a new build
+if [ -d "${scriptdir}/kicad"]; then
+    cd "${scriptdir}/kicad"
+    git pull --rebase
+else
+    cd "${scriptdir}"
+    git clone https://gitlab.com/kicad/code/kicad.git
+fi
 
 if [ $? -ne 0 ]; then
     echo "Could not clone the KiCad source code" >&2
+fi
+
+if [ -d "${scriptdir}/build" ]; then
+    rm -rf "${scriptdir}/build"
 fi
 
 mkdir -p "${builddir}" && cd "${builddir}"
