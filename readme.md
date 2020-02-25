@@ -1,4 +1,4 @@
-[![<KiCad Build Scripts>](https://circleci.com/github/BrianSidebotham/kicad-build.svg?style=svg)](https://www.valvers.com)
+[![<KiCad Build Scripts>](https://circleci.com/gh/BrianSidebotham/kicad-build.svg?style=shield)](https://www.valvers.com)
 
 # Build KiCad from Source
 
