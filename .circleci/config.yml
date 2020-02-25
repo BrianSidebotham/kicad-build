@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
           name: "Install dependencies"
-          command: "sudo dnf -y install gcc gcc-g++ git make wxGTK3-devel python3-wxpython4 OCE-devel cmake glew-devel glm-devel libcurl-devel boost-devel swig python3-devel openssl-devel which"
+          command: "sudo dnf -y install gcc gcc-g++ git make wxGTK3-devel python3-wxpython4 OCE-devel cmake glew-devel glm-devel libcurl-devel boost-devel swig python3-devel openssl-devel which libngspice-devel"
       - run:
           name: "Clone KiCad Source Code"
           command: "git clone --depth 1 https://gitlab.com/kicad/code/kicad.git"
