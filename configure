@@ -21,7 +21,10 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-cmake -G "Unix Makefiles" -DKICAD_SCRIPTING_PYTHON3=ON -DKICAD_SCRIPTING_WXPYTHON_PHOENIX=ON ../kicad
+cmake -G "Unix Makefiles" \
+    -DKICAD_SCRIPTING_PYTHON3=ON \
+    -DKICAD_SCRIPTING_WXPYTHON_PHOENIX=ON \
+    "${scriptdir}/kicad"
 
 if [ $? -ne 0 ]; then
     echo "Error configuring KiCad" >&2
