@@ -5,10 +5,6 @@
 scriptdir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 builddir="${scriptdir}/build"
 
-if [ -d "${scriptdir}/kicad" ]; then
-    rm -rf "${scriptdir}/kicad"
-fi
-
 # Make sure we have the KiCad source code
 if [ ! -d "${scriptdir}/kicad" ]; then
     cd "${scriptdir}"
@@ -37,5 +33,9 @@ cmake -G "Unix Makefiles" \
 
 if [ $? -ne 0 ]; then
     echo "Error configuring KiCad" >&2
+    echo "${PATH}"
+    echo "CMAKE $(which cmake)"
+    cmake --version
+    cat "${builddir}/CMakeFiles/CMakeOutput.log"
     exit 1
 fi
